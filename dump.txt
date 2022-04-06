@@ -1,0 +1,88 @@
+border-radius:9999px;
+place-items:center;
+display:grid;
+box-sizing:border-box;
+
+
+*, :after, :before ---> ?
+
+:root --->?
+
+#a3b4c8;
+
+background: linear-gradient(166.77deg, rgb(59, 65, 85) 0%, rgb(58, 48, 69) 100%);
+
+background-image: linear-gradient(80deg,  #022e51 50%, #a3b4c8);
+
+
+:root {
+    --primary: #e3e3e3;
+    --secondary: #bebebe;
+    --style-color-fuchsia: #da2eef;
+    --style-color-blue: #2b6aff;
+    --style-color-cyan: #39d0d8;
+    --status-active: #aadefe;
+    --text-home-page-primary: #fff;
+    --text-home-page-secondary: #adc6ff;
+    --ground-color-light-solid: rgba(65,74,108,0.95);
+    --ground-color-light: rgba(57,65,106,0.8);
+    --ground-color-slim: rgba(13,22,63,0.54);
+    --ground-color: #161c3982;
+    --ground-color-dark: rgba(22,27,55,0.6);
+    --ground-color-dark-solid: rgba(23,29,58,0.9);
+    --pop-over-bg-low: rgba(65,103,108,0.75);
+    --pop-over-bg-high: #1e2848ab;
+    --pop-over-ring: #756aeccc;
+    --pop-over-ring-2: rgba(39,64,114,0.4);
+    --formkit-label-text-active: #fff;
+    --formkit-label-text-normal: #ffffffa6;
+    --formkit-thumb-text-normal: #fff;
+    --formkit-thumb-text-disabled: #ffffffb8;
+    --formkit-bg-active: #7e9db5b0;
+    --formkit-bg-normal: #d8d8d80f;
+    --formkit-thumb-color: #0993ecd9;
+    --formkit-thumb-color-disable: #6a739796;
+    --formkit-thumb-color-transparent: rgba(9,145,236,0.1);
+    --app-line-color: hsla(0,0%,100%,0.1);
+    --link-color: #5ac4be;
+    --link-decorator: rgba(106,72,254,0.9);
+    --card-color: #fff;
+    --card-color-dark: #1c274fcc;
+    --formkit-ground-color: #efebf4;
+    --formkit-line-color: #d7cbec;
+    --formkit-text-color: #0993ec;
+    --formkit-text-color-disable: #292d41;
+
+
+
+Colorida
+
+root {
+    --color-primary: #ab79d6;
+    --color-on-primary: #351d4a;
+    --color-secondary: #d367c1;
+    --color-background: #27272c;
+    --color-on-background: #c5c5ce;
+    --color-background-alt: #1e1c22;
+    --color-background-alt-alpha: rgba(30,28,34,.75);
+    --color-inverse: #fff;
+    --color-gray: #8e8e8e;
+    --color-yellow: #dedf40;
+    --color-green: #62cb5c;
+    --color-blue: #00bbcb;
+    --color-on-blue: #004a09;
+    --gradient: var(--color-secondary) 10%,var(--color-yellow) 25%,var(--color-green) 50%,var(--color-blue) 75%,var(--color-primary) 90%;
+    --brand-font: "Kanit",serif;
+    --brand-font-weight: 800;
+    --brand-font-alt: "Baloo 2",system-ui,sans-serif;
+    --brand-font-alt-weight: normal;
+    --brand-font-alt-weight-bold: 500;
+
+
+
+
+   <option value="dlx">DLX</option>
+                                      <option value="fab">FAB</option>
+                                      <option value="ray">RAY</option>
+                                      <option value="solar">SOLAR</option>      
+                                      <option value="cope">COPE</option>   
