@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRTT - Crypto Market Place</title>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300" rel="stylesheet">    
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/styles.css" >
     <script src="https://kit.fontawesome.com/0f595e6fc9.js" crossorigin="anonymous"></script>
@@ -18,7 +19,7 @@
             <div></div>
         </div>  
          <!--<img src="" alt="logo" class="logo">-->
-         <span class="logo">LOGO</span>
+        <div class="global-logo"><h3 class="logo">ESTRELA</h3></div>
         <nav class="global-nav-right">            
             <i class="fa-solid fa-magnifying-glass"></i>
             <i class="fa-regular fa-bell"></i>
@@ -26,7 +27,7 @@
         </nav>       
     </header>
     <div class="global-body">
-        <aside class="left-menu" id="left-menu">
+        <aside class="left-menu" id="leftMenu">
             <ul class="left-menu-top">
                 <li><a href="" id="mnu-swap" >Swap</a></li>
                 <li><a href="" id="mnu-pools">Pools</a></li>
@@ -38,8 +39,17 @@
             </ul>
             <hr class="separator">
             <ul class="left-menu-bottom">
-                <li><a href="" id="mnu-settings">Settings</a></li>
-                <li><a href="" id="mnu-community">Community</a></li>
+                <li><a href="" >Settings</a></li>
+                <li  class="mnu-tooltip"> 
+                    <a href="" >Community</a>            
+                    <div class="tooltipbox">
+                        <span>COMMUNITY</span>                        
+                        <a href="" ><i class="fa-brands fa-twitter"></i> Twitter</a>
+                        <a href=""><i class="fa-brands fa-discord"></i>Discord</a>
+                        <a href=""><i class="fa-brands fa-telegram"></i>Telegram</a>
+                        <a href=""><i class="fa-brands fa-medium"></i>Medium</a>                        
+                    </div>                       
+                </li>
                 <li><a href="" id="mnu-docs">Docs</a></li>
                 <li><a href="" id="mnu-feedback">Feedback</a></li>
             </ul>        
@@ -49,10 +59,10 @@
                 <div class="swap-content">
                     <div class="middle-top-nav center">     
                         <ul class="top-nav-currency">                          
-                            <li id="dlx">DLX</li>
-                            <li id="fab">FAB</li>
-                            <li id="ray">RAY</li>
-                            <li id="solar">SOLAR</li>                
+                            <li class="currency" id="btc">BTC</li>
+                            <li class="currency" id="eth">ETH</li>
+                            <li class="currency" id="fun">FUN</li>                           
+                            <li class="currency" id="vib">VIB</li>                
                         </ul>          
                     </div>
                     <div class="middle-buttons center">
@@ -67,15 +77,15 @@
                         <form id="connect-wallet" class="connectWallet">
                             <div class="selector"> 
                                   <span>From</span>    
-                                  <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    COPE 
-                                  </button>
+                                  <div type="button"  id="btnFrom" class="btn btn-primary dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <div id="btnCurrencyFrom" class="currencyText"> </div>
+                                  </div>
                             </div>
                             <div class="selector"> 
                                 <span>To</span>                                   
-                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                  DLX 
-                                </button>
+                                <div type="button" id="btnTo" class="btn btn-primary dropdown-toggle" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                  <div id="btnCurrencyTo" class="currencyText"></div>
+                                </div>
                           </div>
                           <input type="submit" value="Connect Wallet" class="center btnWallet">
                         </form>
@@ -99,15 +109,22 @@
                     <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="color-white" id="exampleModalLabel">Select a token</h5>
+                        <!-- <button type="button" class="btn-close color-white" ></button> -->
+                        <i class="fa-solid fa-xmark" data-bs-dismiss="modal" aria-label="Close"></i>
                         </div>
                         <div class="modal-body">
-                        ...
+                            <div class="div-search">
+                                <input type="text" id="searchToken" autocomplete="off" placeholder="Search name or mint address" >
+                                <i class="fa-solid fa-magnifying-glass imgSearch"></i>
+                            </div>
+                            <span class="lil-Title">Token</span>
+                            <div class="token-list" id="tokenList">                               
+                             
+                            </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        
                         </div>
                     </div>
                     </div>

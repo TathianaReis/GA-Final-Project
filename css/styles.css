@@ -13,6 +13,58 @@ body {
     margin: 0;
   }
 
+  .currencyText{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 170px;        
+  }
+
+  .currencyText p{
+    display: inline;
+    margin-left: 6px;
+  }
+
+  .currencyText img{
+    margin: 5px;
+  }
+
+  input[type=text], input[type=text]:focus{
+    
+    padding: 5px;
+    margin: 6px;
+    background-color: #022e51;    
+    width: 400px;
+    color: white;
+    border:none;
+    outline: none;
+  }
+
+  
+ .div-search{
+    border: 1px solid #1d6a96;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;    
+  }
+
+  .lil-Title{
+    color:#85b8cb;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+
+  .color-white{
+      color:white;
+  }
+
+  .fa-xmark{
+    font-size:20px;
+}
+  
   .center{
       text-align: center;
   }
@@ -21,9 +73,13 @@ body {
       text-align: left;
   }
 
+  .imgSearch{
+      margin-right: 10px;
+  }
+
 .global-header{
     background-color: #022e51;
-    border: 1px solid #1d6a96;
+    /* border: 1px solid #1d6a96; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -46,6 +102,19 @@ body {
     cursor: pointer;   
 }
 
+
+
+.logo {
+  font-family: 'Ubuntu';
+  margin: 0;
+  color: white;
+  text-shadow: 0 0 0.05em #fff, 0 0 0.2em #3bd0d8, 0 0 0.3em #58f3cd;  
+  /* //font-size: 5.5em; */
+  /* margin-top: -0.6em; */  
+  /* text-shadow: 0 0 0.05em #fff, 0 0 0.2em #fe05e1, 0 0 0.3em #fe05e1; */ 
+  /* //transform: rotate(-7deg); */
+}
+
 .fa-solid{
     color:white;
     cursor: pointer;
@@ -62,10 +131,6 @@ body {
 }
 
 
-
-.logo{
-    display: block;   
-}
 
 .hamburger-menu{
     width:30px;
@@ -92,26 +157,25 @@ body {
     width: 200px;
     height: 91.5vh; 
     background-color: #022e51;        
-    border: 1px solid #1d6a96;        
+    /* border: 1px solid #1d6a96;         */
 }
 
 
 
 .left-menu ul{
-    list-style-type: none;    
-   
+    list-style-type: none;   
     padding: 0;
-    margin: 30px 0 20px 0;
+    margin: 30px 0 20px 0;    
 }
 
-.left-menu li{
+.left-menu-top li, .left-menu-bottom li{
     margin-bottom: 20px;
     color:#85b8cb; 
     padding: 0px 10px;    
   
 }
 
-  .left-menu li a{
+  .left-menu-top li a, .left-menu-bottom li a{
     text-decoration: none;
     color:#85b8cb;
     padding: 10px 25px;
@@ -119,14 +183,13 @@ body {
     
   }
 
-  .left-menu li a:hover, a:visited {
+  .left-menu-top li a:hover, a:visited , .left-menu-bottom li a:hover,.left-menu-bottom li a:focus {
     text-decoration: none;
     cursor: pointer;
     color:#3bd0d8;    
     background-color:rgba(57,208,216,0.05) ;    
     border-radius:10px;  
-    box-shadow: 0px 8px 16px 0px hsl(183,67%,54%,0.2);  
-    
+    box-shadow: 0px 8px 16px 0px hsl(183,67%,54%,0.2);      
 }
 
 
@@ -148,7 +211,11 @@ body {
   .main-middle-content{
     display:flex;
     justify-content: center;       
-    height: 100%;    
+        
+    border-top: 1px solid #1d6a96;   
+    border-left: 1px solid #1d6a96;    
+    height: 100vh;
+    border-radius: 30px 0 0 0;
 } 
 
 .top-nav-currency li{
@@ -208,7 +275,7 @@ body {
 
 
 
-  .middle-top-content {
+  .middle-top-content, .modal-content {
     background-color:#022e51;
     border-radius: 8px 8px 8px 8px;
     border: 1px solid #1d6a96;    
@@ -217,7 +284,96 @@ body {
     
   }
 
-  
+  .modal-body{
+    /*background-image: linear-gradient(80deg,  #022e51 50%, #a3b4c8);*/
+    background: linear-gradient(162deg,hsl(183,67%,54%,0.2) 5.7%,hsl(183,67%,54%,0),hsl(183,67%,54%,0.2) );
+    border-radius: 8px 8px 8px 8px;
+    border: 1px solid #1d6a96;       
+    margin: 10px 0 10px 0;   
+    padding: 0;
+  }
+
+  .modal-body span{
+      color:white;
+      margin:20px 0 0 15px;
+      display:block;
+  }
+
+  .token-list{
+      height:400px;
+      overflow-x: 0;
+      overflow-y: scroll;
+      margin-top: 5px;
+      /* padding-left: 5px; */
+  }
+
+  .token-list{
+      padding: 10px 10px 10px 0;
+      color:white;
+      /* background: linear-gradient(162deg,hsl(183,67%,54%,0.2) 5.7%,hsl(183,67%,54%,0),hsl(183,67%,54%,0.2) );
+      border-radius: 8px 8px 8px 8px; */
+      
+  }
+
+  /* width */
+.token-list::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+.token-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px #1d6a96; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.token-list::-webkit-scrollbar-thumb {
+  background:white;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.token-list::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+  .resultRow{
+    padding: 10px 0 20px 10px;    
+    margin-bottom: 10px;
+    border-radius: 8px 8px 8px 8px;    
+    cursor: pointer;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .resultRow:first-child{   
+    background-color:#022e51;   
+  }
+
+  .resultRow:hover{   
+    background-color:#022e51;       
+  }
+
+  .resultRow img, .currencyText img{
+    width: 30px;
+    display:inline;
+    border-radius: 10px;      
+  }
+
+  .resultRowText{    
+    display:flex;
+    flex-direction: column;
+    margin-left: 15px;
+   
+  }
+
+  .resultRowText span{    
+    margin:0;
+    font-size: 11px;
+    color:#85b8cb;
+  }
+    
   select {
     border: 1px solid #1d6a96;
     padding: 6px;
@@ -255,11 +411,11 @@ body {
      
   }
 
-  .dropdown-toggle::after {
+  /* .dropdown-toggle::after {
     
     margin-left: 130px;
    
-}
+} */
 
   .selector{
     /*background-image: linear-gradient(80deg,  #022e51 50%, #a3b4c8);*/
@@ -277,6 +433,8 @@ body {
     color:white;
     display: block;
   }
+
+
 
   .btn-secondary {
     border: 1px solid #1d6a96;    
@@ -306,8 +464,7 @@ body {
 }*/
 
 .btnWallet{
-    
-    
+       
     
     width: 300px;
     height: 40px;
@@ -327,10 +484,20 @@ body {
     display: block;
 }
 
+.modal-dialog {
+    max-width: 520px;
+    margin: 1.75rem auto;
+    top: 201px;
+    left: 122px;
+}
+
+
+
   @media (min-width: 768px) {
 
     .logo{
-        margin-left: 20px;
+        margin-left: 40px;
+        margin-top: 10px;
     }
 
     .hamburger-menu{
@@ -338,7 +505,7 @@ body {
     }
 
     .body-content{
-        margin-left:250px;
+        margin-left:200px;
     }
 
    .left-menu{
@@ -348,5 +515,80 @@ body {
     .swap-content{        
         left:25%;      
     }
-     
+
+    .mnu-tooltip {
+        position: relative;
+        display: inline-block;
+        width: 200px;
+      } 
+      
+      .mnu-tooltip .tooltipbox {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        top: -85px;
+        left: 110%;
+        width: 200px;
+        background: hsl(183,67%,54%,0.2);
+        border-radius: 8px;       
+        border: 1px solid #1d6a96;      
+        border-left-width: 0;  
+        box-shadow: 0px 8px 16px 0px hsl(183,67%,54%,0.2);
+        color: #fff;
+        text-align: left;        
+        padding: 5px 0;        
+      }
+      
+      .mnu-tooltip .tooltipbox::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent hsl(183,67%,54%,0.2) transparent transparent;
+      }
+ 
+
+      .mnu-tooltip:hover .tooltipbox ,  .mnu-tooltip:focus .tooltipbox{
+        display: block;
+      }
+
+      
+      .mnu-tooltip .tooltipbox a{
+        cursor: pointer;
+        border-bottom: solid 1px #85b8cb;      
+        color:white;
+        text-decoration: none;
+      }
+
+      .mnu-tooltip .tooltipbox a:last-child{        
+        border-bottom: 0;
+      }
+      
+      .mnu-tooltip .tooltipbox a:hover{
+       text-decoration: underline;
+       background-color:hsl(183,67%,54%,0.2);
+       border-radius: 0;
+       box-shadow: 0;
+      }
+
+      .mnu-tooltip .tooltipbox span{
+          font-size: 11px;
+          text-align: left;
+          margin-left: 15px;
+          padding: 0px;
+          color: #85b8cb;
+      }
+
+      .fa-brands{
+        margin-right: 10px;
+    }
+
   }
+
+
+  /* modal-backdrop{position:fixed;top:0;left:0;z-index:1050;width:100vw;height:100vh;background-color:#000}
+  .modal-backdrop.fade{opacity:0}
+  .modal-backdrop.show{opacity:.5} */
