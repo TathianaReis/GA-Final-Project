@@ -200,7 +200,7 @@ function search_token_keyup() {
 // function search_token() {
     
 //     let input = document.getElementById('searchToken').value
-//     input=input.toLowerCase();
+//     input=input.toLowerCase();m;;l,////////.llll       
 //     let x = document.getElementsByClassName('resultRow');
       
 //     for (i = 0; i < x.length; i++) { 
