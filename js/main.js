@@ -71,104 +71,95 @@ currencies.forEach(function(currency) {
 
 
 
-async function listCrypto(xCall, xToken){
-    
-        
-    //const tokenSelected = event.target.id.toUpperCase();
-   
-     //console.log(event.target.id.toUpperCase());
-     
-     const apiKey = "ffee4fd1b20cc7840198f05d0fa224d4";
-    
-     const url = `http://api.coinlayer.com/list?access_key=${apiKey}`;
+async function listCrypto(xCall, xToken) {
+  const apiKey = 'ffee4fd1b20cc7840198f05d0fa224d4';
+  const url = `http://api.coinlayer.com/list?access_key=${apiKey}`;
 
-     const responseApi = await fetch(url);  
-    
-     const results = await responseApi.json(); 
+  try {
+    const responseApi = await fetch(url);
 
-     const cryptoList = results.crypto;
-
-        
-     for (const [key, value] of Object.entries(cryptoList)) {
-        
-
-        const cryptoSymbol = value.symbol;
-        const cryptoName = value.name;
-        const cryptoIcon = value.icon_url;
-
-       
-        
-        if(xCall === 0){
-
-            const divCryptoResult = document.createElement("div");                
-            divCryptoResult.setAttribute("class", "resultRow");
-            divCryptoResult.setAttribute("id", cryptoSymbol);
-            divCryptoResult.setAttribute("data-bs-dismiss", "modal");   
-
-
-            const iconImg = document.createElement("img");    
-            iconImg.setAttribute("src", cryptoIcon);            
-            divCryptoResult.appendChild(iconImg);
-
-            const cryptoTextDiv = document.createElement("div");                
-            cryptoTextDiv.setAttribute("class", "resultRowText");
-
-            const cryptoTextSymbol = document.createElement("p");
-            cryptoTextSymbol.innerText = cryptoSymbol
-            cryptoTextDiv.appendChild(cryptoTextSymbol);
-
-            const cryptoTextName = document.createElement("span");
-            cryptoTextName.innerText = cryptoName
-            cryptoTextDiv.appendChild(cryptoTextName);
-
-
-            divCryptoResult.appendChild(cryptoTextDiv);      
-        
-            
-            document.getElementById("tokenList").appendChild(divCryptoResult);
-
-
-        }  
-
-        if (xCall === 1){     
-
-            if(cryptoSymbol.toUpperCase() === xToken){
-
-                document.getElementById("btnCurrencyTo").innerHTML = "";
-
-                const iconImg = document.createElement("img");    
-                iconImg.setAttribute("src", cryptoIcon);
-                document.getElementById("btnCurrencyTo").appendChild(iconImg);
-                
-                const cryptoTextSymbol = document.createElement("p");
-                cryptoTextSymbol.innerText = cryptoSymbol
-                document.getElementById("btnCurrencyTo").appendChild(cryptoTextSymbol);
-            }           
-
-        }
-
-        if (xCall === 2){     
-
-            if(cryptoSymbol.toUpperCase() === xToken){
-
-                document.getElementById("btnCurrencyFrom").innerHTML = "";
-
-                const iconImg = document.createElement("img");    
-                iconImg.setAttribute("src", cryptoIcon);
-                document.getElementById("btnCurrencyFrom").appendChild(iconImg);
-                
-                const cryptoTextSymbol = document.createElement("p");
-                cryptoTextSymbol.innerText = cryptoSymbol
-                document.getElementById("btnCurrencyFrom").appendChild(cryptoTextSymbol);
-            }    
-
-        }
-
-
+    // Check if the response is ok (status is in the range 200-299)
+    if (!responseApi.ok) {
+      throw new Error(`HTTP error! Status: ${responseApi.status}`);
     }
 
-     
+    const results = await responseApi.json();
+
+    // Check if the API returned an error
+    if (results.error) {
+      throw new Error(`API error: ${results.error.info}`);
+    }
+
+    const cryptoList = results.crypto;
+
+    for (const [key, value] of Object.entries(cryptoList)) {
+      const cryptoSymbol = value.symbol;
+      const cryptoName = value.name;
+      const cryptoIcon = value.icon_url;
+
+      if (xCall === 0) {
+        const divCryptoResult = document.createElement('div');
+        divCryptoResult.setAttribute('class', 'resultRow');
+        divCryptoResult.setAttribute('id', cryptoSymbol);
+        divCryptoResult.setAttribute('data-bs-dismiss', 'modal');
+
+        const iconImg = document.createElement('img');
+        iconImg.setAttribute('src', cryptoIcon);
+        divCryptoResult.appendChild(iconImg);
+
+        const cryptoTextDiv = document.createElement('div');
+        cryptoTextDiv.setAttribute('class', 'resultRowText');
+
+        const cryptoTextSymbol = document.createElement('p');
+        cryptoTextSymbol.innerText = cryptoSymbol;
+        cryptoTextDiv.appendChild(cryptoTextSymbol);
+
+        const cryptoTextName = document.createElement('span');
+        cryptoTextName.innerText = cryptoName;
+        cryptoTextDiv.appendChild(cryptoTextName);
+
+        divCryptoResult.appendChild(cryptoTextDiv);
+
+        document.getElementById('tokenList').appendChild(divCryptoResult);
+      }
+
+      if (xCall === 1) {
+        if (cryptoSymbol.toUpperCase() === xToken) {
+          document.getElementById('btnCurrencyTo').innerHTML = '';
+
+          const iconImg = document.createElement('img');
+          iconImg.setAttribute('src', cryptoIcon);
+          document.getElementById('btnCurrencyTo').appendChild(iconImg);
+
+          const cryptoTextSymbol = document.createElement('p');
+          cryptoTextSymbol.innerText = cryptoSymbol;
+          document
+            .getElementById('btnCurrencyTo')
+            .appendChild(cryptoTextSymbol);
+        }
+      }
+
+      if (xCall === 2) {
+        if (cryptoSymbol.toUpperCase() === xToken) {
+          document.getElementById('btnCurrencyFrom').innerHTML = '';
+
+          const iconImg = document.createElement('img');
+          iconImg.setAttribute('src', cryptoIcon);
+          document.getElementById('btnCurrencyFrom').appendChild(iconImg);
+
+          const cryptoTextSymbol = document.createElement('p');
+          cryptoTextSymbol.innerText = cryptoSymbol;
+          document
+            .getElementById('btnCurrencyFrom')
+            .appendChild(cryptoTextSymbol);
+        }
+      }
+    }
+  } catch (error) {
+    console.error('There was an error with the API request:', error.message);
+    // You can also display an error message to the user here
   }
+}
 
 listCrypto(0,0);
 listCrypto(1,"AIR");
